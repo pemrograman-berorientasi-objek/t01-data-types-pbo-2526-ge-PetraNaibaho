@@ -13,31 +13,24 @@ public class Main {
             int a = sc.nextInt();
             int b = sc.nextInt();
 
-            boolean overflow = false;
-
-            if (a > 0 && b > 0 && a > Integer.MAX_VALUE - b) {
-                overflow = true;
-            } else if (a < 0 && b < 0 && a < Integer.MIN_VALUE - b) {
-                overflow = true;
-            }
-
-            if (overflow) {
+            if ((a > 0 && b > 0 && a > Integer.MAX_VALUE - b) ||
+                (a < 0 && b < 0 && a < Integer.MIN_VALUE - b)) {
                 System.out.println("OVERFLOW");
             } else {
                 System.out.println(a + b);
             }
         }
 
-        /* ================= SOAL 2 (FIXED) ================= */
+        /* ================= SOAL 2 ================= */
         else if (soal.equals("Soal2")) {
-            String xs = sc.next();
-            String ys = sc.next();
+            String xStr = sc.next();
+            String yStr = sc.next();
 
             float floatSum =
-                    Float.parseFloat(xs) + Float.parseFloat(ys);
+                    Float.parseFloat(xStr) + Float.parseFloat(yStr);
 
             double doubleSum =
-                    Double.parseDouble(xs) + Double.parseDouble(ys);
+                    Double.parseDouble(xStr) + Double.parseDouble(yStr);
 
             double diff = Math.abs(doubleSum - floatSum);
 
