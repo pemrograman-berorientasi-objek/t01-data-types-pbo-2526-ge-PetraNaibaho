@@ -13,27 +13,25 @@ public class Main {
             int a = sc.nextInt();
             int b = sc.nextInt();
 
-            if ((a > 0 && b > 0 && a > Integer.MAX_VALUE - b) ||
-                (a < 0 && b < 0 && a < Integer.MIN_VALUE - b)) {
+            int sum = a + b;
+
+            if ((a > 0 && b > 0 && sum < 0) ||
+                (a < 0 && b < 0 && sum > 0)) {
                 System.out.println("OVERFLOW");
             } else {
-                System.out.println(a + b);
+                System.out.println(sum);
             }
         }
 
         /* ================= SOAL 2 ================= */
         else if (soal.equals("Soal2")) {
-            String xStr = sc.next();
-            String yStr = sc.next();
+            double x = sc.nextDouble();
+            double y = sc.nextDouble();
 
-            float floatSum =
-                    Float.parseFloat(xStr) + Float.parseFloat(yStr);
-
-            double doubleSum =
-                    Double.parseDouble(xStr) + Double.parseDouble(yStr);
+            float floatSum = (float) x + (float) y;
+            double doubleSum = x + y;
 
             double diff = Math.abs(doubleSum - floatSum);
-
             System.out.printf("%.6f%n", diff);
         }
 
@@ -44,7 +42,7 @@ public class Main {
             Integer a = N;
             Integer b = a;
 
-            a = a + 1;
+            a++;
 
             System.out.println("==: " + (a == b));
             System.out.println("equals: " + a.equals(b));
@@ -57,7 +55,7 @@ public class Main {
             String a = S;
             String b = new String(S);
 
-            a = a + "X";
+            a += "X";
 
             System.out.println("==: " + (a == b));
             System.out.println("equals: " + a.equals(b));
@@ -65,14 +63,14 @@ public class Main {
 
         /* ================= SOAL 5 ================= */
         else if (soal.equals("Soal5")) {
-            int i = Integer.parseInt(sc.next());
-            double d = Double.parseDouble(sc.next());
-            boolean flag = Boolean.parseBoolean(sc.next());
+            int i = sc.nextInt();
+            double d = sc.nextDouble();
+            boolean flag = sc.nextBoolean();
 
             double result = i * d;
 
             if (!flag) {
-                result *= -1;
+                result = -result;
             }
 
             System.out.printf("%.2f%n", result);
